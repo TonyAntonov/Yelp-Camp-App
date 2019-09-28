@@ -65,6 +65,8 @@ INDEX        /campdrounds        GET        Display a list of all campgrounds
 NEW          /campgrounds/new    GET        Display form to make a new campground
 CREATE       /campdrounds        POST       Add a new campground in DB
 SHOW         /campdrounds/:id    GET        Show description about one campdround
+UPDATE      / campdrounds/:id    POST       Find camground by ID and update
+DESTROY     / campdrounds/:id    DELETE     Find camground by ID and delete
 */
 
 app.listen(process.env.PORT, process.env.IP, function(){
