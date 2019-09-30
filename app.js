@@ -1,4 +1,4 @@
-require('dotenv').config()
+require('dotenv').config();
 
 var express     = require("express"),
     app         = express(),
@@ -20,8 +20,15 @@ var commentRoutes = require("./routes/comments"),
 //  call seedDB() function for seeding database    
 //  seedDB(); 
     
-mongoose.connect("mongodb://localhost/yelp_camp_v12", { useNewUrlParser: true });   // connecting to DB
-
+// mongoose.connect("mongodb://localhost/yelp_camp_v12", { useNewUrlParser: true });   // connecting to DB
+   mongoose.connect(process.env.YELP_CAMP_DATABASE, {
+       useNewUrlParser: true,
+       useCreateIndex: true
+   }).then(() => {
+       console.log('Connected to DB!');
+   }).catch(err => {
+       console.log('ERROR', err.message);
+   });
 
 app.use(bodyParser.urlencoded({extended: true}));  //  use Body-parser for getting data from the req.body
 app.set("view engine", "ejs");
