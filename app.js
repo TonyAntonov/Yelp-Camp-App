@@ -39,7 +39,7 @@ app.use(flash());  // use flash() built-in methods for flash messages in my appl
 app.locals.moment = require('moment');
 // PASSPORT configuration
 app.use(require("express-session")({
-    secret: "Dea is the cutest girl",
+    secret: process.env.SECRET,
     resave: false,
     saveUninitialized: false
 }));
